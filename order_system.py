@@ -42,19 +42,19 @@ def process_order_input(menu_selection):
     """
     # Check if the customer left menu_selecton empty
     if not menu_selection:
-        raise ValueError("Menu selection cannot be empty.")
+        raise ValueError("Sorry, menu selection cannot be empty.")
         # return order
 
      # Check if the customer entered a number    
     if not menu_selection.isdigit():
-        raise ValueError("Menu selection must be a number")
+        raise ValueError("Sorry, menu selection must be a number")
         # return order
     # Convert the menu selection to an integer
     num = int(menu_selection)
     
     # Check if the customer entered a number between 1 and the total number of menu items
     if num < 1 or num > len(get_menu_items_dict(menu)):
-        raise ValueError(f"Menu selection must be between 1 and {len(get_menu_items_dict(menu))}")
+        raise ValueError(f"Sorry, menu selection must be between 1 and {len(get_menu_items_dict(menu))}")
     
     return num
     
@@ -133,27 +133,10 @@ def place_order(menu):
             # TODO: Round the prices to 2 decimal places.
             order_total = round(sum(prices_list), 2)
 
-            # return order, order_total
-            # TODO: Exit the ordering loop
-            # TODO: Either use a break statement or set the condition to False
-        # menu_selection = input("Type 'exit' to finish):")
-
-        # if menu_selection.lower() == 'exit':
-        #         ordering = False
-        # else:
-        #     #Process the menu selection
-        #     order = update_order(order, menu_selection, menu_items)
-            # print("Order updated", order)
-    # Create the receipt
+               # Create the receipt
     receipt = [{"Item name": item["Item name"], "Price": item["Price"], "Quantity":item["Quantity"]} for item in order]
    
 
-    # Print itemized receipt
-   # print_itemized_receipt(receipt, order_total)
-
-    # Print the total price
-    # print(f"Total price: ${order_total:.2f}")
-    # print_receipt_footer(total_price)
     # TODO: Return the order list and the order total
     return order, order_total
 
